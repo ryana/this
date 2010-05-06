@@ -16,8 +16,14 @@ Gem::Specification.new do |s|
      "README"
   ]
   s.files = [
-    "VERSION",
-     "test/this_test.rb"
+    "Gemfile",
+     "LICENSE",
+     "README",
+     "Rakefile",
+     "VERSION",
+     "lib/this.rb",
+     "test/this_test.rb",
+     "this.gemspec"
   ]
   s.homepage = %q{http://github.com/ryana/this}
   s.rdoc_options = ["--charset=UTF-8"]
