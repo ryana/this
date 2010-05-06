@@ -1,6 +1,10 @@
+require File.join(File.dirname(__FILE__), '..', 'lib', 'this')
 require 'rubygems'
+require 'bundler'
+Bundler.require :default, :test
+
 require 'shoulda'
-require File.join(File.dirname(__FILE__), '..', 'this')
+require 'ruby-debug'
 
 class ThisTest < Test::Unit::TestCase
 

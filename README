@@ -1,0 +1,60 @@
+This
+
+Ruby should be able to have fun with private writer methods.  That is what This is.
+
+@chadfowler posted this ruby quiz on twitter on Mar 31, 2009:
+
+Ruby quiz: in 140 chrs or less, why doesn't this work:
+class Y; def a; self.x end; private; def x; puts "hi" end end; Y.new.a
+(http://twitter.com/chadfowler/status/11390678834)
+
+With whitespace:
+
+  class Y
+    def a
+      self.x
+    end
+
+    private
+    def x
+      puts "hi"
+    end
+  end
+  
+  Y.new.a
+
+results in:
+
+  NoMethodError: private method `x' called for #<Y:0x10f6af8>
+  from (irb):1:in `a'
+  from (irb):1
+
+You get a NoMethodError because you can't call a private method on self.
+Ruby doesn't check the caller when sending messages to the 'self' receiver,
+so privacy reigns.
+
+With This, we get:
+
+  require 'this'
+  include This
+
+  class Y
+    def a
+      this.x
+    end
+
+    private
+    def x
+      puts "hi"
+    end
+  end
+  
+  Y.new.a
+
+  hi
+  => nil
+
+Ahhh...
+
+
+Copyright 2010 Ryan Angilly
