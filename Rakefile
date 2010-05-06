@@ -7,6 +7,7 @@ begin
     gemspec.homepage = "http://github.com/ryana/this"
     gemspec.authors = ["Ryan Angilly"]
   end
+  Jeweler::GemcutterTasks.new
 rescue LoadError
   puts "Jeweler not available. Install it with: gem install jeweler"
 end
